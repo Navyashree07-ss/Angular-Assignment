@@ -1,0 +1,101 @@
+<div class="container">
+  <header>
+    <h1>STAR WARS</h1>
+    <div class="project-name">THE SWAMPI PROJECT</div>
+  </header>
+  <div class="filter-content">
+    <aside class="filters">
+      <h2>FILTERS</h2>
+      <div class="dropdown-top">
+        <kendo-dropdownlist #moviedropdownList title= "'MovieName'" [data]="movies" [value]="'MovieName'" (close)="onMovieDropDownListClose($event)">
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div class="checkbox-item">
+              <input type="checkbox" [checked]="dataItem.isSelected"  (change)="selectOrUnselectMovies($event, dataItem.title)" />
+              <span [style.color]="contentColor">&nbsp;{{dataItem.title}}</span>
+            </div>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+
+      <div class="dropdown-top">
+        <kendo-dropdownlist #speciesdropdownList [data]="species" [value]="'Species'" (close)="onSpeciesDropDownListClose($event)">
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div class="checkbox-item">
+              <input type="checkbox" [checked]="dataItem.isSelected" (click)="onItemSelected($event)" (change)="selectOrUnselectSpecies($event, dataItem.name)" />
+              <span [style.color]="contentColor">&nbsp;{{dataItem.name}}</span>
+            </div>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+
+      <div class="dropdown-top">
+        <kendo-dropdownlist #vechicledropdownList [data]="Vehicles" [value]="'Vehicle'" (close)="onVechicleDropDownListClose($event)">
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div class="checkbox-item">
+              <input type="checkbox" [checked]="dataItem.isSelected" (click)="onItemSelected($event)" (change)="selectOrUnselectVehicle($event, dataItem.name)" />
+              <span [style.color]="contentColor">&nbsp;{{dataItem.name}}</span>
+            </div>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <div class="dropdown-top">
+        <kendo-dropdownlist #starShipdropdownList [data]="starships" [value]="'Star Ships'" (close)="onStartShioDropDownListClose($event)">
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div class="checkbox-item">
+              <input type="checkbox" [checked]="dataItem.isSelected" (click)="onItemSelected($event)" (change)="selectOrUnselectStarShips($event, dataItem.name)" />
+              <span [style.color]="contentColor">&nbsp;{{dataItem.name}}</span>
+            </div>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <div class="dropdown-top">
+        <kendo-dropdownlist #birthYeardropdownList [data]="birthYears" [value]="'Birth Year'" (close)="onBirthYearDropDownListClose($event)">
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div class="checkbox-item">
+              <input type="checkbox" [checked]="dataItem.isSelected" (click)="onItemSelected($event)" (change)="selectOrUnselectBirthYear($event, dataItem.birthYear)" />
+              <span [style.color]="contentColor">&nbsp;{{dataItem.birthYear}}</span>
+            </div>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <div class="search">
+        <kendo-button class="search-btn" (click)="onSearch()">SEARCH</kendo-button>
+      </div>
+    </aside>
+    <section class="search-results">
+      <h2>SEARCH RESULTS</h2>
+      <p>(By Default this table will have all data)</p>
+      <kendo-grid [kendoGridBinding]="people"
+                  [pageSize]="8"
+                  [pageable]="true"
+                  (dblclick)="dblClickEvent($event)">
+        <kendo-grid-column field="SINo" title="SI No" [width]="220">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.SINo}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="name" title="Character Name" [width]="220">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.name}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="speciesLength" title="Species" [width]="220">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.speciesLength}}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="birth_year" title="Birth Year" [width]="220">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{dataItem.birth_year}}
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+
+      
+    </section>
+  </div>
+
+</div>
+
+
+

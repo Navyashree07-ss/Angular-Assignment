@@ -1,0 +1,61 @@
+<div class="container">
+  <header>
+    <h1>STAR WARS</h1>
+    <div class="project-name">THE SWAMPI PROJECT</div>
+  </header>
+  <div class="filter-content">
+    <aside class="filters">
+      <div *ngIf="profile">
+        <p><strong>Name:</strong> {{ profileData.name }}</p>
+        <p><strong>birthyear</strong> {{ profileData.birth_year }}</p>
+        <p><strong>Gender:</strong> {{ profileData.gender }}</p>
+        <p><strong>Height:</strong> {{ profileData.height }}</p>
+        <p><strong>Created at:</strong> {{ profileData.created }}</p>
+        <p><strong>Edited at:</strong> {{ profileData.edited }}</p>
+        <p><strong>Hair color:</strong> {{ profileData.hair_color }}</p>
+        <p><strong>Eye color:</strong> {{ profileData.eye_color }}</p>
+        <p><strong>Skin color:</strong> {{ profileData.skin_color }}</p>
+      </div>
+    </aside>
+    <section class="search-results">
+      <div *ngIf="filmsData">
+        <h1>FILMS</h1>
+        <section class="sections">
+          <div *ngFor="let movienames of filmsData">
+            <p><strong>Movie Name : </strong>{{movienames.title}}</p>
+          </div>
+        </section>
+      </div>
+      
+      <div *ngIf="vehicleData">
+        <h1>VECHILE</h1>
+        <section class="sections">
+          <div *ngFor="let vehicles of vehicleData">
+            <p><strong>Vehicle Name : </strong>{{vehicles.name}}</p>
+          </div>
+        </section>
+      </div>
+      <div *ngIf="starShipsData">
+        <h1>STARSHIPS</h1>
+        <section class="sections">
+          <div *ngFor="let starships of starShipsData">
+            <p><strong>StarShip Details : </strong>{{starships.name}}</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<!--<div *ngIf="filmsData">
+  <h1>FILMS</h1>
+  <div *ngFor="let movienames of filmsData">
+    <section class="sections">
+      <p><strong>Movie Name : </strong>{{movienames.title}}</p>
+      <p><strong>Director : </strong>{{movienames.director}}</p>
+    </section>
+
+  </div>
+
+</div>-->
